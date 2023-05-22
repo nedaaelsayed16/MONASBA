@@ -13,6 +13,7 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
+app.use(express.json());
 
 const connect = async () =>{
 try {
@@ -24,7 +25,7 @@ try {
 };
 
 app.use(cors());
-app.use(express.json());
+//app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
@@ -36,7 +37,7 @@ app.use("/api/Reservation", reservationRoute);
 app.use("/api/Reviews", reviewRoute);
 
 app.use((err,req,res,next)=>{
-  const errorStatus = err.status || 500;
+  const errorStatus = err.status || 5000;
   const errorMessage = err.message || " Something went wrong! ";
 
   return res.status(errorStatus).send(errorMessage);

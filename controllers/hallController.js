@@ -20,3 +20,9 @@ export const createHall = async (req, res, next) =>{
 export const deleteHall = async(req, res, next) => {}
 export const getHall = async(req, res, next) => {}
 export const getHalls = async(req, res, next) => {}
+
+
+
+
+//  git config --global user.email "you@example.com"
+ // git config --global user.name "Your Name"
