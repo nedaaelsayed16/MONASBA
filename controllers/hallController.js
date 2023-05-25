@@ -42,8 +42,15 @@ export const getHall = async(req, res, next) => {
     }
 }
 export const getHalls = async(req, res, next) => {
-    try{
 
+    const filters = {
+        cat:"design",
+    }
+
+    try{
+        const halls = await Hall.find();
+        if(!halls) next(createError(404, "Hall not found!"));
+        res.status(200).send(halls);
     }catch(err){
         next(err);
     }
